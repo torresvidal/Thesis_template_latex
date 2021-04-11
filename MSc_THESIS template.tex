@@ -1,0 +1,311 @@
+%Author: Alana Torres Vidal
+%DISCLAIMER: This is not an official template! You should read the CUA Thesis Handbook and talk to the Graduate's office to see the most up-to-date University guidelines. 
+%Feel free to modify this template as you wish. Good luck on your thesis.
+
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext} %generate dummy text for this template
+
+%Page layout
+%Paper size: 8-1/2 x 11in 
+%Paper margin: at least 1in on all edges (left margin: 1-1/2in) 
+%			headers and footer should fall within the margins 
+%12 pt for text		10pt for footnote, references,
+%idented paragraphs 
+%doublespace 
+%	all text, except:
+%singlespace:
+%	table titles, figure captions, footnotes
+%single space with blamk line between items: 
+%	table of contents, list of figures, abbreviations, footnotes, endnotes, bibliographies, reference lists
+\usepackage[left=1in,right=1in, bottom=1.5in,top=1.5in, letterpaper]{geometry}
+\usepackage{ragged2e} %text justification
+
+\usepackage{setspace} %line spacing
+\doublespacing
+
+\usepackage{indentfirst} %indent first paragraph of a section
+\setlength{\parindent}{4em}
+
+
+%Images 
+\usepackage{graphicx}
+\graphicspath{{Figures/}} %figures path folder!!
+
+\usepackage{fancyhdr} %Bottom-centered page number in endmatter (Bibliography and Appendix)
+\renewcommand{\headrulewidth}{0pt}
+
+%Miscellaneous packages 
+\usepackage{amsfonts,amssymb,amsmath} %\mathbb{•} for math symbols 
+\usepackage{float} %repositioning item (table, figure, etc) on paper  
+\usepackage{enumerate} %lists 
+\usepackage[hidelinks]{hyperref} %url links
+\usepackage{booktabs} %tables
+\usepackage{array, multirow} %tables 
+\usepackage{adjustbox} %readjust size of figures/tables
+\usepackage{listings} %include code formatting (Python)
+
+%Color to highlight future changes 
+\usepackage{xcolor}
+
+
+%Centered headings for table of contents, list of figures, list of tables, etc
+\usepackage{sectsty}
+\chapterfont{\centering}
+
+%Bibliography 
+\usepackage[notes,backend=biber,authordate]{biblatex-chicago}
+\addbibresource{template_references.bib}
+
+
+
+\begin{document}
+% FRONTMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%frontmatter (Abstract, Acknowledgments, Dedication, table of contentes, list of figures, list of tables) 
+	
+%%%%%%%%%% Title Page %%%%%%%%%%
+%numbering: none (counted as page i) 
+%double-spaced 
+\thispagestyle{empty}
+\center
+THE CATHOLIC UNIVERSITY OF AMERICA \\ \ 
+
+\begin{singlespace}
+	\textcolor{red}{Title of Thesis} \\ \ \\ \ 
+\end{singlespace}
+\doublespace
+
+  A THESIS \\ \ \\ \ 
+
+  Submitted to the Faculty of the\\
+  \textcolor{red}{Department Name}\\
+  \textcolor{red}{School Name}\\
+  Of The Catholic University of America\\
+  In Partial Fulfillment of the Requirements\\
+  For the Degree\\
+  \textcolor{red}{Name of Degree}\\
+
+  \copyright
+
+  Copyright
+
+  All Rights Reserved
+
+  By
+
+  \textcolor{red}{Author's Name}\\  
+  	 
+  Washington, D.C. \\
+
+\vfill
+
+	 \textcolor{red}{2021}
+%%%%%%%%%% END OF TITLE PAGE %%%%%%%%%%
+
+
+%%%%%%%%%% Abstract %%%%%%%%%%
+%numbering: none
+\newpage 
+\thispagestyle{empty}
+\singlespace 
+\textcolor{red}{Title of Thesis} \\ \ \\ \
+% DO NO PLACE TITLE IN ALL CAPS OR BOLD
+\doublespace
+\textcolor{red}{Author's Name, Degree} \\ \ 
+Director: \textcolor{red}{Director's Name, Degree}\\ \ 
+\doublespace
+\begin{justify}
+%This work 
+Abstract of thesis, if applicable. \blindtext[4]
+\end{justify}
+\thispagestyle{empty}
+\clearpage
+%%%%%%%%%% END OF Abstract %%%%%%%%%%
+
+
+%%%%%%%%%% Signature Page  %%%%%%%%%%
+%numbering: none
+%not counted in pagination 
+\pagenumbering{roman} 
+\setcounter{page}{2}
+\singlespace
+\begin{justify}
+	\noindent This thesis by \textcolor{red}{Author's Name} fulfills the thesis requirement for the \textcolor{red}{Name of degree} in \textcolor{red}{major} approved by \textcolor{red}{Director's Name, Degree} as Director, and by \textcolor{red}{Reader's Name, Degree} as Reader.
+\end{justify}
+
+\vspace{1in}
+
+\noindent
+\begin{tabular}{ll}
+  \makebox[3.in]{} & \makebox[2.5in]{\hrulefill}\\
+                   & \textcolor{red}{Director's Name, Degree}, Director \\ \ \\ \ \\
+  \makebox[3.in]{} & \makebox[2.5in]{\hrulefill}\\
+                   & \textcolor{red}{Director's Name, Degree}, Reader   \\ \ \\ \ \\
+\end{tabular}
+\doublespace
+%%%%%%%%%% END OF signature Page %%%%%%%%%%
+
+
+%%%%%%%%%% Table of Contents %%%%%%%%%%
+%numbering: lowercase roman in footer 
+%single-spaced
+	%\numbering{roman}
+	\newpage
+	\tableofcontents{\centering}
+%%%%%%%%%% END OF Table of Contents %%%%%%%%%%
+
+
+%%%%%%%%%% List of Figures %%%%%%%%%%
+%numbering: lowercase roman in footer  
+%single-spaced
+	\newpage
+	\listoffigures
+	\addcontentsline{toc}{section}{List of Figures}
+%%%%%%%%%% END OF List of Figures %%%%%%%%%%
+
+
+%%%%%%%%%% List of Tables%%%%%%%%%%
+%numbering: lowercase roman in footer 
+%single-spaced
+	\newpage
+	\listoftables
+	\addcontentsline{toc}{section}{List of Tables}
+%%%%%%%%%% END OF List of Tables %%%%%%%%%%
+
+
+
+%%%%%%%%%% Acknowledgments %%%%%%%%%%
+%numbering: lowercase roman in footer 
+\newpage
+\section*{Acknowledgments}
+\justify
+\addcontentsline{toc}{section}{Acknowledgments}
+\blindtext
+%%%%%%%%%% END OF Acknowledgments %%%%%%%%%%
+
+	
+
+% MAIN MATTER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%numbering: arabic (starts at 1)
+%numbering in the footer for: Title pages 
+%numbering in the header flushed right: all other text 
+%double-spaced 
+%Titles: headlike-style, centered, 
+\newpage
+\pagestyle{myheadings}
+\pagenumbering{arabic} 
+\setcounter{page}{1}
+
+
+\chapter{Introduction} \label{ch:intro}
+\justify 
+You can type the introduction of your thesis here. \\
+Also, you can create another .tex file for each chapter of the thesis. Save the chapter.tex file in the same folder as the main .tex file and call it by using "\\input{chapter.tex}". \\
+
+%% EXAMPLE NEW CHAPTER %%		
+\chapter{A Chapter of Your Thesis}\label{ch:chapter_label}
+%You can add text here, for example. 
+\section{How-to's}
+%You can add text here, for example. 
+\subsection{How to Insert Citations}
+% 2 WAYS TO CITE REFERENCE (\cite AND \autocite)
+References can be automatically generated by downloading citation files (.ris, .bib, and so on). I recommend that you use a reference manager software (Mendeley is free and linked to your CUA-Elsevier account), create a folder for your references and add the citation files. \\
+Check formatting before exporting the folder (select all desired references and ctrl+E) to a .bib file (template\_references.bib in this template).\\
+The .bib file should be added to the "addbibresource" function in the preamble (aka, the part of the .tex file before document begins). \\
+There are two forms of citation: \\
+Citation 1, according to \cite{Reference2}. \\
+Citation 2 \autocite{Reference1}. 
+
+\subsection{How to Insert and Reference Figures}
+Figures should be saved in the folder path inserted in function "graphicspath" of package "graphicx", which is called in preamble. \\
+The folder ("Figures/", in this template) should be located in the same folder as the thesis.tex file. 
+%% EXAMPLE INSERT A FIGURE IN TEXT %%
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width =0.6\textwidth]{Figure_CUA.pdf} %path of figure
+	\singlespacing \caption[Caption of Figure]{Caption of Figure. Description of Figure.}
+	\label{fig:CUA}
+\end{figure} 
+
+%% EXAMPLE: CROSS-REFERENCE OF A FIGURE IN TEXT %%
+Figure \ref{fig:CUA} as discussed in Chapter \ref{ch:chapter_label}. 
+
+
+\subsection{How to Insert Lists}
+\begin{itemize}
+	\item First item of this list
+	\item Second item of this list 
+\end{itemize}
+
+\subsection{How to Insert and Reference Tables}
+Table \ref{tab:table_label} as discussed in Chapter \ref{ch:chapter_label}. 
+%%%%%%%%%%TABLE%%%%%%%%%%%%%%
+\begin{table}[h!]
+	\centering
+	\singlespacing \caption{Caption of Table.}
+	\label{tab:table_label}%
+	\begin{adjustbox}{width=0.5\textwidth}
+		%% (text alignment). l = left, c = center, p{Xem} = paragraph X-em large
+		%% lllp{4} is 3 left-aligned columns and 1 4-em wide paragraph column 
+		%% for more complex tables, check \multicolumn{cols}{pos}{text} and \multirow{number of rows}{width}{text}
+		\begin{tabular}{ |c|c|c| } 
+			\hline
+			cell1 & cell2 & cell3 \\ 
+			\hline
+			cell4 & cell5 & cell6 \\ 
+			cell7 & cell8 & cell9 \\ 
+			\hline
+		\end{tabular}
+	\end{adjustbox}
+	
+\end{table}
+
+\subsection{How to Insert Equations and Math Formulas}
+%USE \begin{equation} AND \end{equation}
+%IF YOU DONT WANT THE EQUATION TO  BE NUMBERED, USE \begin{equation*} \end{equation}
+%USE $ TO ENTER AND EXIT MATH MODE. IT CAN BE USED IN-TEXT, OUTSIDE 
+You can insert a formula in-text using math mode $E = mc^{2}$. 
+
+You can insert a formula using an equation, such as Equation \ref{equation_angular_velocity}:
+\begin{equation} \label{equation_angular_velocity}
+	\omega = \frac{\Delta \theta}{\Delta t}
+\end{equation}
+
+
+\subsection{How to Insert Footnotes and Links}
+This is a sentence that requires a footnote.\footnote[1]{Footnote for sentence in the text}\\
+This is a sentence for a hyperlink to \href{https://graduate-studies.catholic.edu/}{CUA's Graduate Studies website.}
+
+
+
+% BACK MATTER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%numbering: arabic 
+%single-spaced with blank line between items 
+\newpage
+\singlespacing
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\printbibliography 
+\newpage
+\appendix
+\chapter{Appendix Chapter 1} \label{appendix}
+\section{A Section of the Appendix}
+A code example. 
+\begin{lstlisting}[language=Python]
+import os
+def shuffle_list():
+	from random import seed
+	from random import shuffle 
+	
+	seed(1)
+	sequence = []
+	
+	for i in range (10):
+		sequence.append([i])
+	print(sequence)
+	shuffle(sequence)
+	print(sequence)
+return 
+\end{lstlisting}
+\end{document}
